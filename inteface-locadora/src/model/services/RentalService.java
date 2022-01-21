@@ -31,4 +31,5 @@ public class RentalService {
 		
 		carRental.setInvoice(new Invoice(basicPayment, tax));		
 	}
+	
 }
