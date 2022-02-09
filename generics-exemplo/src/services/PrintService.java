@@ -5,14 +5,15 @@ import java.util.List;
 
 public class PrintService {
 
-	private List<Integer> list = new ArrayList<>();
+	// podemos usar o object mas tem agora o problema do type safety
+	private List<Object> list = new ArrayList<>();
 
-	public void addValue(Integer value) {
+	public void addValue(Object value) {
 		list.add(value);
 	}
 
 	// retorna o primeiro elemento na lista
-	public Integer first() {
+	public Object first() {
 		if (list.isEmpty()) {
 			throw new IllegalStateException("List is empty"); // programação defensiva
 		}
