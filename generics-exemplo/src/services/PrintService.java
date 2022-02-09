@@ -3,17 +3,19 @@ package services;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PrintService {
+public class PrintService<T> {
+	/*
+	 * agora estamos instanciando uma classe do tipo T qualquer. Letra é
+	 * irrelevante, só temos que seguir usando ela
+	 */
+	private List<T> list = new ArrayList<>();
 
-	// podemos usar o object mas tem agora o problema do type safety
-	private List<Object> list = new ArrayList<>();
-
-	public void addValue(Object value) {
+	public void addValue(T value) {
 		list.add(value);
 	}
 
 	// retorna o primeiro elemento na lista
-	public Object first() {
+	public T first() {
 		if (list.isEmpty()) {
 			throw new IllegalStateException("List is empty"); // programação defensiva
 		}

@@ -10,7 +10,11 @@ public class Program {
 
 		Scanner sc = new Scanner(System.in);
 
-		PrintService ps = new PrintService();
+		PrintService<Integer> ps = new PrintService<>();
+		/*
+		 * se eu quiser inserir um string nessa lista não vai dar problema de type
+		 * safety
+		 */
 
 		System.out.print("How many values? ");
 		int n = sc.nextInt();
