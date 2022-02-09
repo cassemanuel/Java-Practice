@@ -17,9 +17,11 @@ public class Program {
 		System.out.print("Months: ");
 		int months = sc.nextInt();
 
+		//classe que instancia o serviço e tá passando taxa de 2% ao mes
 		BrazilInterestService is = new BrazilInterestService(2.0);
 		double payment = is.payment(amount, months);
 
+		//operação devolve valor a ser pago
 		System.out.println("Payment after " + months + " months:");
 		System.out.println(String.format("%.2f", payment));
 
