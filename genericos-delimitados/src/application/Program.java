@@ -6,26 +6,29 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import entities.Product;
 import services.CalculationService;
 
 public class Program {
 
 	public static void main(String[] args) {
 
-		List<Integer> list = new ArrayList<>();
+		List<Product> list = new ArrayList<>();
 
 		String path = "C:\\temp\\in.txt";
 
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 
 			String line = br.readLine();
+			// separa que nem separei CSV (é a mesma coisa)
 			while (line != null) {
-				list.add(Integer.parseInt(line));
+				String[] fields = line.split(","); // recorta o string
+				list.add(new Product(fields[0], Double.parseDouble(fields[1])));
 				line = br.readLine();
 			}
 
-			Integer x = CalculationService.max(list);
-			System.out.println("Max:");
+			Product x = CalculationService.max(list);
+			System.out.println("Most expansive:");
 			System.out.println(x);
 
 		} catch (IOException e) {

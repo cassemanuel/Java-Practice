@@ -4,11 +4,16 @@ import java.util.List;
 
 public class CalculationService {
 
-	public static Integer max(List<Integer> list) {
+	public static <T extends Comparable<T>> T max(List<T> list) {
+
+		/* Teve que falar que T extends Comparable T para poder usar o compareTo */
+
 		if (list.isEmpty()) {
 			throw new IllegalStateException("List can't be empty");
 		}
-		Integer max = list.get(0);
+
+		T max = list.get(0);
+
 		/*
 		 * método fácil de pegar o maior elemento de uma lista.
 		 * pega o primeiro elemento
@@ -16,7 +21,8 @@ public class CalculationService {
 		 * Se o resultado for maior que 0 significa que o primeiro é maior que o
 		 * segundo. Ai atualiza o max com o item.
 		 */
-		for (Integer item : list) {
+
+		for (T item : list) {
 			if (item.compareTo(max) > 0) {
 				max = item;
 			}
