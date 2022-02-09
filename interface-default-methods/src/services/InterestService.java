@@ -6,7 +6,8 @@ public interface InterestService {
 
 	double getInterestRate();
 
-	// implementa a conta da taxa de juros
+	// implementa a conta da taxa de juros usando o default
+	// basicamente vira um método na implementação, ai não precisa ficar copiando e colando
 	default double payment(double amount, int months) {
 		if (months < 1) {
 			throw new InvalidParameterException("Months must be greater than zero");
